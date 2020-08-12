@@ -1,0 +1,184 @@
+
+<script>
+    console.log ("Let's play Rock, Paper, Scissors! Best out of 5 rounds wins!")
+
+
+
+            var computerSelection;
+            var playerSelection;
+            var numberOfRounds = 0; 
+            var wonRounds = 0;
+            
+
+            // Computer randomly throws - function
+
+                function computerPlay() {
+                
+                    computerSelection = Math.floor (Math.random() * 3);
+                        if (computerSelection == 0) {
+                            computerSelection = "rock";
+                            console.log ("Computer threw rock.")
+                            }
+                        else if (computerSelection == 1) {
+                            computerSelection = "paper";
+                            console.log ("Computer threw paper.")
+                        }
+                        else if (computerSelection == 2) {
+                            computerSelection = "scissors";
+                            console.log ("Computer threw scissors.")
+                        }
+                }
+
+                
+            // function to test that player put legitimate throw
+            function legitThrow() {
+                if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
+                    alert("Dude, you can\'t throw a " + playerSelection + "! Let's forget this ever happened.");
+                    numberOfRounds--;
+
+                }
+            }
+
+            // compareThrows of computer and player function
+                function compareThrows() {
+                            if (computerSelection == "rock" && playerSelection == "paper") {
+                                console.log ("Paper covers rock. You won!");
+                                wonRounds++;
+                            }
+                            else if (computerSelection == "rock" && playerSelection == "scissors") {
+                                console.log ("Rock smashes scissors. You lost!");
+                            }
+                            else if (computerSelection == "scissors" && playerSelection == "paper") {
+                                console.log ("Uh oh! Scissors cut paper. You lost!");
+                            }
+                            else if (computerSelection == "scissors" && playerSelection == "rock") {
+                                console.log ("Rock smashes scissors. You won!");
+                                wonRounds++;
+                            }
+                            else if (computerSelection == "paper" && playerSelection == "scissors") {
+                                console.log ("Scissors cut paper. You won!");
+                                wonRounds++; 
+                            }
+                            else if (computerSelection == "paper" && playerSelection == "rock") {
+                                console.log ("Paper covers rock. You lost!");
+                            }
+
+                        }
+
+
+
+
+                // Invoking function computerPlay
+                // computerPlay();
+
+
+            // Test scenario - only paper
+            // var playerSelection = "paper";
+
+function gameOfFiveRounds(){
+
+    while (numberOfRounds <= 4){
+
+
+            playerSelection = window.prompt ("What do you throw? Rock, Paper, or Scissors?");
+            playerSelection = playerSelection.toLowerCase();
+            legitThrow();
+
+            console.log ("You threw " + playerSelection + ".");
+
+
+                // Creating function playRound
+                function playRound() {
+                    computerPlay();
+                    if (computerSelection == playerSelection) {
+                        console.log ("Tie! " + computerSelection + " equals " + playerSelection + " (duh!)");
+                        // numberOfRounds--;     
+                    }
+                    else {
+                    compareThrows();
+
+                    }
+
+                }
+
+            playRound();
+                numberOfRounds++;
+                        console.log("You've won " + wonRounds + " out of " + numberOfRounds + ".");
+    }
+}
+                
+gameOfFiveRounds();
+
+if (wonRounds == 5){
+    console.log ("Wow - you aced this!");
+}
+else if (wonRounds >=3) {
+    console.log ("Well done! You beat the computer!")
+}
+else {
+    console.log ("Better luck next time!");
+}
+console.log ("Thanks for playing!");
+
+
+
+
+// function gameOfFiveRounds() {
+//     while (numberOfR)ounds <= 4){
+//                                     // Invoking function playRound
+//                                         playRound();
+
+//                         // Prompting player to enter selection
+//                         var playerSelection = window.prompt ("What do you throw? Rock, Paper, or Scissors?");
+//                                     playerSelection = playerSelection.toLowerCase();
+//                                     legitThrow();
+//                                     console.log ("You threw " + playerSelection + ".");
+//                         numberOfRounds++;
+//                         console.log("You've played " + numberOfRounds + ".");
+//     }
+// }
+
+// gameOfFiveRounds();
+
+// while (numberOfRounds <= 4) {
+//     game();
+//     console.log ("Games equal or under 4.")
+
+// }
+
+
+
+// console.log ("You've played 5 rounds. Game over!");
+
+
+            // console.log ("You threw " + playerSelection + ".");
+            //     playRound();
+            //     console.log ("You've played two rounds.");
+
+//                 // var numberOfRounds = numberOfRounds + 1;
+//                 var playerSelection = window.prompt ("What do you throw? Rock, Paper, or Scissors?");
+//             playerSelection = playerSelection.toLowerCase();
+//             legitThrow();
+
+// while (numberOfRounds <= 4) {
+//                 playRound();
+//                 numberOfRounds++;
+//                 console.log("You've won " + wonRounds + " out of " + numberOfRounds + " rounds."); 
+//                             console.log("Here's your last round!");
+//                             var playerSelection = window.prompt ("What do you throw? Rock, Paper, or Scissors?");
+//                         playerSelection = playerSelection.toLowerCase();
+//                         legitThrow();
+                        
+//         }
+
+// console.log("Thanks for playing!");
+
+                
+
+
+
+
+
+
+
+</script>
